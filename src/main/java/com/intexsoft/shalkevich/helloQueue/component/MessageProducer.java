@@ -1,5 +1,7 @@
 package com.intexsoft.shalkevich.helloQueue.component;
 
+import com.intexsoft.shalkevich.helloQueue.util.MQParameters;
+import lombok.Setter;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -13,9 +15,11 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Log4j2
+@Setter
 public class MessageProducer {
 
-    private String routKey;
+    @Autowired
+    MQParameters mqValues;
     @Autowired
     private RabbitTemplate rabbitTemplate;
     @Autowired
@@ -23,18 +27,10 @@ public class MessageProducer {
 
     /**
      *
-     * @param routKey as routing key for messages producing
-     */
-    public MessageProducer(String routKey){
-        this.routKey = routKey;
-    }
-
-    /**
-     *
      * @param msg for rabbitmq
      */
     public void produceMsg(String msg){
-        rabbitTemplate.convertAndSend(exchange.getName(), routKey, msg);
+        rabbitTemplate.convertAndSend(exchange.getName(), mqValues.getRoutKey(), msg);
         log.info("Send message {} to exchange", msg);
     }
 }
