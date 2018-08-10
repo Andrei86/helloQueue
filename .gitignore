@@ -1,0 +1,7 @@
+.doc/
+target/
+.idea
+.ide
+logs/
+.log
+.iml
