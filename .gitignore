@@ -1,6 +1,6 @@
 .doc/
 target/
-.idea
+.idea/
 .ide
 logs/
 .log
