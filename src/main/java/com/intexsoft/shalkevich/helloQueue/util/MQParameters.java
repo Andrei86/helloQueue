@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
- * @author andrey.shalkevich on 10.08.2018;
  *
  * Storage for rabbitmq parameters
  */
