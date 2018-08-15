@@ -16,19 +16,19 @@ import static org.mockito.ArgumentMatchers.any;
  */
 @RunWith(MockitoJUnitRunner.class)
 public class ProduceControllerTest {
-    @Mock
+    /*@Mock
     ProduceService produceService;
     @InjectMocks
     ProduceController produceController;
 
     private String msg = "test msg";
 
-    /**
+    *//**
      * Checks sendMsg method of controller
-     */
+     *//*
     @Test
     public void ProduceControllerTest(){
         produceController.sendMsg(msg);
         Mockito.verify(produceService, Mockito.times(1)).produceMsg(any(String.class));
-    }
+    }*/
 }

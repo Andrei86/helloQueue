@@ -1,40 +1,40 @@
 package com.intexsoft.shalkevich.helloQueue.service;
 
+import com.intexsoft.shalkevich.helloQueue.model.BookMessage;
 import com.intexsoft.shalkevich.helloQueue.util.MQParameters;
-import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
+import lombok.Getter;
+import lombok.extern.log4j.Log4j;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Autowired;;
-import org.springframework.stereotype.Component;
+;
 import org.springframework.stereotype.Service;
 
 /**
- * Rabbitmq messages producing
+ * RabbitMQ messages producer
  */
 @Service
-@Slf4j
-@Setter
+@Log4j
+@Getter
 public class ProduceService implements IProduceService {
 
-    private final MQParameters mqValues;
+    private final MQParameters mqParameters;
     private final RabbitTemplate rabbitTemplate;
     private final DirectExchange exchange;
 
     public ProduceService(MQParameters mqValues, RabbitTemplate rabbitTemplate, DirectExchange exchange) {
-        this.mqValues = mqValues;
+        this.mqParameters = mqValues;
         this.rabbitTemplate = rabbitTemplate;
         this.exchange = exchange;
     }
 
     /**
-     * Sends messages into rabbitMq queue
+     * Sends messages into RabbitMq queue
      *
      * @param msg for rabbitmq
      * @see RabbitTemplate#convertAndSend(String, String, Object)
      */
-    public void produceMsg(String msg) {
-        rabbitTemplate.convertAndSend(exchange.getName(), mqValues.getRoutKey(), msg);
-        log.info("Sent message {} to exchange", msg);
+    public void produceMsg(BookMessage msg) {
+        log.info(String.format("Sent message %s to exchange.", msg));
+        rabbitTemplate.convertAndSend(exchange.getName(), mqParameters.getRoutKeyTo(), msg);
     }
 }

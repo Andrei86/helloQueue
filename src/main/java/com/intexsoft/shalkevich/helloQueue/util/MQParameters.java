@@ -11,12 +11,15 @@ import org.springframework.stereotype.Component;
 @Component
 @Getter
 public class MQParameters {
-    @Value("${hello.rabbitmq.queue}")
-    String queueName;
+    @Value("${hello.rabbitmq.queue.to}")
+    String queueToCassandra;
+
+    @Value("${hello.rabbitmq.queue.from}")
+    String queueFromCassandra;
 
     @Value("${hello.rabbitmq.exchange}")
     String directExchangeName;
 
-    @Value("${hello.rabbitmq.routing.key}")
-    String routKey;
+    @Value("${hello.rabbitmq.routing.key.to}")
+    String routKeyTo;
 }
