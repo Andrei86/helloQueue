@@ -1,4 +1,4 @@
-# SpringBootRabbitMQ
+# QueueExampleApplication
 
 1.Install jdk 1.8.0_151
 
@@ -12,4 +12,4 @@
 
 6.Launch application
 
-7.In your browser go to http://localhost:8080/send?msg=[your message] to public message
+7.In your browser go to http://localhost:8080/send/book?title=[book_title]
