@@ -2,6 +2,7 @@ package by.intexsoft.shalkevich.queueExample.controller;
 import by.intexsoft.shalkevich.queueExample.service.ProduceService;
 import by.intexsoft.shalkevich.queueExample.model.BookMessage;
 import by.intexsoft.shalkevich.queueExample.util.ApplicationConstants;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,15 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @Log4j2
+@RequiredArgsConstructor
 public class ProduceController {
     private final ProduceService produceService;
-    /**
-     * Create {@link ProduceController} instance
-     * @param produceService bean for {@link ProduceController}s use
-     */
-    public ProduceController(ProduceService produceService) {
-        this.produceService = produceService;
-    }
     /**
      * Sends message into RabbitMQ
      * @param title book title

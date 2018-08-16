@@ -1,23 +1,21 @@
 package by.intexsoft.shalkevich.queueExample.model;
 import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+
+import java.io.Serializable;
+
 /**
  * Model for message for book creating
  */
-@Setter
+@RequiredArgsConstructor
 @Getter
 public class BookMessage {
+    @NonNull
     private String title;
-
     /**
-     * Create {@link BookMessage} instance
-     * @param title of {@link java.awt.print.Book}
-     */
-    public BookMessage(String title) {
-        this.title = title;
-    }
-    /**
-     * Describe string performance of {@link BookMessage}
+     * Describes string performance of {@link BookMessage}
      * @return string performance of {@link BookMessage} instance
      */
     @Override

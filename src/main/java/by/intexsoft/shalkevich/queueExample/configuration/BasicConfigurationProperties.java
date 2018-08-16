@@ -2,12 +2,12 @@ package by.intexsoft.shalkevich.queueExample.configuration;
 
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
 /**
  *
- * Storage for configuration properties
+ * Storage for RabbitMQ configuration properties
  */
-@Component
+@Configuration
 @Getter
 public class BasicConfigurationProperties {
     @Value("${queue.name.produce.to.cassandra}")

@@ -10,7 +10,6 @@ public class RabbitExampleApplication
 {
     /**
      * Method for application starting
-     *
      * @param args fo start application
      */
     public static void main(String[] args) {
