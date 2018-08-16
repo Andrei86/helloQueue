@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 @Log4j2
 @RequiredArgsConstructor
 public class ProduceService implements IProduceService {
-    private final BasicConfigurationProperties mqParameters;
+    private final BasicConfigurationProperties basicConfigurationProperties;
     private final RabbitTemplate rabbitTemplate;
     private final DirectExchange exchange;
     /**
@@ -24,6 +24,6 @@ public class ProduceService implements IProduceService {
      */
     public void produceMessage(BookMessage message) {
         log.info(String.format("Sent message %s to exchange.", message));
-        rabbitTemplate.convertAndSend(exchange.getName(), mqParameters.getRoutKey(), message);
+        rabbitTemplate.convertAndSend(exchange.getName(), basicConfigurationProperties.getRoutKeyToCassandra(), message);
     }
 }

@@ -1,7 +1,6 @@
 package by.intexsoft.shalkevich.queueExample.service;
 
 import by.intexsoft.shalkevich.queueExample.model.BookMessage;
-
 /**
  * Describes BookMessage producer
  */
